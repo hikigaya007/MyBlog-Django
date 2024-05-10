@@ -1,0 +1,26 @@
+{% extends 'navbar.html' %}
+
+{% block title %}
+   Home
+{% endblock %}
+
+{% block content %}
+    <section class=''>
+        <h1 class="text-center text-3xl font-bold p-4">Blogs</h1>
+        <div class = "w-full flex  justify-center items-center flex-col" >
+            {%for blog in blogs%}
+
+        <a href='{% url 'page' slug=blog.slug %}' class=" flex justify-between items-center gap-10 max-h-[400px] max-w-[60%] p-3 ">
+
+
+            <img class='w-[400px] rounded-lg' src="{{blog.image.url}}" alt="blogs">
+            <div class='w-[250px]'>
+                <p class="text-xl font-bold">{{blog.title}}</p>
+                <p class="text-sm">By- {{blog.author}}</p>
+            </div>
+        </a>
+
+        {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>
+    {% block title %}
+        MyBlog
+    {% endblock %}
+    </title>
+</head>
+<body>
+    <nav class =" w-full h-[80px] bg-[#E7DFD9] flex justify-between items-center p-4">
+        <div>
+            <p class="font-bold text-xl">MyBlog</p>
+        </div>
+        <div>
+            <ul class="flex gap-4 font-semibold">
+                <li><a href="{% url 'blogs'%}">Home</a></li>
+                <li>Add Post</li>
+                <li>Profile</li>
+                <li>Sign Out</li>
+            </ul>
+        </div>
+    </nav>
+    <main class=""> 
+        {%block content%}
+        {%endblock%}
+    </main>
+</body>
+</html>
