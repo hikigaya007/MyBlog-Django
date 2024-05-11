@@ -11,14 +11,14 @@
     </title>
 </head>
 <body>
-    <nav class =" w-full h-[80px] bg-[#E7DFD9] flex justify-between items-center p-4">
+    <nav class =" w-full h-[80px] bg-slate-900 text-white flex justify-between items-center p-6">
         <div>
             <p class="font-bold text-xl">MyBlog</p>
         </div>
         <div>
             <ul class="flex gap-4 font-semibold">
                 <li><a href="{% url 'blogs'%}">Home</a></li>
-                <li>Add Post</li>
+                <li><a href="{% url 'add-blog'%}">Add Blog</a></li>
                 <li>Profile</li>
                 <li>Sign Out</li>
             </ul>

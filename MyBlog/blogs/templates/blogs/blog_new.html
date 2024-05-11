@@ -1,0 +1,55 @@
+{% extends 'navbar.html' %}
+
+{% block title %}
+   New Post
+{% endblock %}
+
+{% block content %}
+    <section class = " mt-10  p-4 w-full  flex flex-col items-center justify-center gap-4">
+        <h1 class = "text-2xl font-semibold underline">Upload New Blog</h1>
+        <form class="flex flex-col gap-4 w-[400px]" action="{% url 'add-blog' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div class = "flex w-full justify-between">
+                <p>Title :</p>
+                <input 
+                name ="title"
+                id ="title"
+                type="text"
+                class = "border border-black p-1 w-[350px]"
+            >
+            </div>
+            <div class = "flex w-full justify-between">
+                <p>Body :</p>
+                <textarea
+                name="body"
+                cols ="45"
+                rows = "5"
+                class = "border border-black "
+                id="body"></textarea>
+            </div>
+            <div class = "flex w-full justify-between">
+                <p>Slug :</p>
+                <input 
+                name ="slug"
+                id ="slug"
+                type="text"
+                class = "border border-black p-1 w-[350px]"
+                >
+            </div>
+            <div class = "flex w-full justify-between">
+                <p>Image :</p>
+                <input 
+                name ="image"
+                id ="image"
+                type="file" 
+                accept="image/*"
+                class = >
+            </div>
+            <button
+            type ="submit"
+            class ="bg-slate-900 text-white font-semibold rounded-lg p-2"
+            >Upload blog</button>
+        </form>
+        <p class = "text-red-500 text-lg font-semibold ">{{error_message}}</p>
+    </section>
+{% endblock %}
