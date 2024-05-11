@@ -7,23 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Register</title>
 </head>
-<body class = 'h-screen w-screen flex flex-col items-center justify-center bg-[#FFF2D7]'>
-    <div class = 'flex flex-col p-4  w-[700px] items-center gap-2'>
-        <h2 class ='text-center font-bold text-2xl underline'>Create Account</h2>
-        <form method="post" class = 'flex flex-col bg-[#D8AE7E] rounded-lg gap-4 p-4 w-[50%]'>
+<body class = 'h-screen w-screen flex flex-col items-center justify-center bg-black text-white'>
+    <div class = 'flex flex-col p-4  w-[700px] justify-center items-center gap-2'>
+        <h2 class ='text-center font-bold text-2xl  underline'>Create Account</h2>
+        <p>Already Have Account? <a  class="underline font-semibold text-[#e79aff]" href="{% url 'login' %}">Click here</a></p>
+        <form method="post" class = 'flex flex-col bg-white text-black rounded-lg gap-4 p-4 w-[50%]'>
             {% csrf_token %}
             <div>
-                <p class ="text-lg font-semibold">Username :</p>
+                <p class ="text-lg  font-semibold">Username :</p>
                 <input type="text"
                 class ="border border-black w-full p-1"
                 id= "username"
+                placeholder = "Username"
                 name ="username"
                 required >
             </div>
             <div>
                 <p class ="text-lg font-semibold">Password :</p>
-                <input type="text"
+                <input type="password"
                 id= "password1"
+                placeholder = "Password"
                 class ="border border-black w-full p-1"
                 name ="password1" 
                 required>
@@ -31,9 +34,10 @@
                 
             </div>
             <div>
-                <p class ="text-lg font-semibold">Confirm Password :</p>
-                <input type="text"
+                <p class ="text-lg   font-semibold">Confirm Password :</p>
+                <input type="password"
                 id= "password2"
+                placeholder = "Enter Password Again"
                 class ="border border-black w-full p-1"
                 name ="password2" 
                 required>
@@ -42,7 +46,7 @@
             </div>
             <button 
             class = "bg-black text-white p-1 rounded-xl text-lg font-semibold"
-            type ="submit">Login</button>
+            type ="submit">Create Account</button>
             <p class = "text-center font-bold text-red-700">{{error_message}}</p>
         </form>
     </div>

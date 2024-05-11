@@ -3,17 +3,17 @@ from .models import Blog
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url="/")
+@login_required(login_url="login")
 def home(request):
     blogs = Blog.objects.all().order_by('-date')
     return render(request , 'blogs/home.html' , {'blogs': blogs})
 
-@login_required(login_url="/")
+@login_required(login_url="login")
 def blog_page(request , slug):
     blog = Blog.objects.get(slug=slug)
     return render(request, 'blogs/blog_page.html', {'blog': blog})
 
-@login_required(login_url="/")
+@login_required(login_url="login")
 def blog_new(request):
     if request.method == 'POST':
         title = request.POST.get('title')

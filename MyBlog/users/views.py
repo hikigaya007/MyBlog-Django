@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.models import User
 
 
@@ -40,5 +40,7 @@ def register(request):
     else:
         return render(request, 'users/register.html')
 
-def logout(request):
-    pass
+def logout_view(request):
+    if request.method == 'GET':
+        logout(request)
+        return redirect('login')

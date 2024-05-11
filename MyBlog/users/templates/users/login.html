@@ -7,23 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Login</title>
 </head>
-<body class = 'h-screen w-screen flex flex-col items-center justify-center bg-[#FFF2D7]'>
-    <div class = 'flex flex-col p-4  w-[700px] items-center gap-2'>
+<body class = 'h-screen w-screen flex flex-col items-center justify-center bg-black text-white'>
+    <div class = 'flex flex-col p-4  w-[700px] justify-center items-center gap-2'>
         <h2 class ='text-center font-bold text-2xl underline'>Login</h2>
-        <form method="post" class = 'flex flex-col bg-[#D8AE7E] rounded-lg gap-4 p-4 w-[50%]'>
+        <p>Create Account ? <a  class = "underline font-semibold text-[#e79aff]" href="{% url 'register' %}">Click Here</a></p>
+        <form method="post" class = 'flex flex-col bg-white text-black rounded-lg gap-4 p-4 w-[50%]'>
             {% csrf_token %}
             <div>
-                <p class ="text-lg font-semibold">Username :</p>
+                <p class ="text-lg  font-semibold">Username :</p>
                 <input type="text"
                 class ="border border-black w-full p-1"
                 id= "username"
                 name ="username"
+                placeholder = "Username"
                 required >
             </div>
             <div>
-                <p class ="text-lg font-semibold">Password :</p>
-                <input type="text"
+                <p class ="text-lg   font-semibold">Password :</p>
+                <input type="password"
                 id= "password"
+                placeholder = "Password"
                 class ="border border-black w-full p-1"
                 name ="password" 
                 required>
